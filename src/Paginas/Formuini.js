@@ -24,12 +24,10 @@ const Formuini = () => {
     try {
       setCargando(true);
       const respuesta = await fetch('https://apidirectoriotelefonico.vercel.app/api/inisesion', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  credentials: 'include', // 👈 agrega esto
-  body: JSON.stringify(datos),
-});
-
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos),
+      });
 
       const resultado = await respuesta.json();
 
