@@ -13,7 +13,7 @@ function Perfil() {
   const [datosContacto, setDatosContacto] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/contactos/${id}`)
+    fetch(`https://apidirectoriotelefonico.vercel.app/api/contactos/${id}`)
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -39,7 +39,7 @@ function Perfil() {
 
   const handleGuardarEdicion = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/contactos/${id}`, {
+      const response = await fetch(`https://apidirectoriotelefonico.vercel.app/api/contactos/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datosContacto),
@@ -63,7 +63,7 @@ function Perfil() {
     if (!window.confirm("¿Seguro que quieres eliminar este contacto?")) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/contactos/${id}`, {
+      const response = await fetch(`https://apidirectoriotelefonico.vercel.app/api/contactos/${id}`, {
         method: 'DELETE',
       });
 

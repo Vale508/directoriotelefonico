@@ -8,7 +8,7 @@ function ContenedorContactos() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/contactos')
+    fetch('https://apidirectoriotelefonico.vercel.app/api/contactos')
       .then(res => res.json())
       .then(data => {
         console.log('Datos recibidos del backend:', data);

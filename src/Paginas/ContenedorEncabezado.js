@@ -8,7 +8,7 @@ function EncabezadoContainer() {
 
   const cerrarSesion = () => {
     console.log("hola")
-    fetch('http://localhost:5000/api/cerrarsesi', {
+    fetch('https://apidirectoriotelefonico.vercel.app/api/cerrarsesi', {
       method: 'POST',
       credentials: 'include'
     })
