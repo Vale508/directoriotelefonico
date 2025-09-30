@@ -3,13 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import NuevoContacto from '../Componentes/Nuevocontacto';
 
 function ContenedorNuevo() {
+  // Leer el usuario almacenado en localStorage
+  const storedUser = JSON.parse(localStorage.getItem('usuarios')); 
+
   const [form, setForm] = useState({
     Nombre: '',
     Cargo: '',
     Telefono: '',
     Ciudad: '',
     Imagen: '',
-    usuario_id: localStorage.getItem('Id_Usuario') || ''  // 🔑 aquí
+    usuario_id: storedUser ? storedUser.Id_Usuario : ''  // 🔑 lo toma bien desde el login
   });
 
   const [loading, setLoading] = useState(false);
