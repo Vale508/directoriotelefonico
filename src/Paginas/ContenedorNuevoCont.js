@@ -31,13 +31,15 @@ const ContenedorNuevoCont = ({ onClose, onAdd }) => {
 
     try {
       const response = await fetch(
-        "https://apidirectoriotelefonico.vercel.app/api/contactos",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form)
-        }
-      );
+  "https://apidirectoriotelefonico.vercel.app/api/contactos",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include", // 👈 MUY IMPORTANTE para que viaje la cookie
+    body: JSON.stringify(form),
+  }
+);
+
 
       const data = await response.json();
       console.log("Respuesta del backend:", data);
