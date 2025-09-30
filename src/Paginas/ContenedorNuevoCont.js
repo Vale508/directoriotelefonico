@@ -9,6 +9,7 @@ function ContenedorNuevo() {
     Telefono: '',
     Ciudad: '',
     Imagen: '',
+    usuario_id: localStorage.getItem('usuario_id') || ''  // 🔑 aquí
   });
 
   const [loading, setLoading] = useState(false);
@@ -29,11 +30,17 @@ function ContenedorNuevo() {
       return;
     }
 
+    if (!form.usuario_id) {
+      alert('No se encontró el usuario asociado, inicia sesión de nuevo.');
+      return;
+    }
+
     setLoading(true);
     try {
       const response = await fetch('https://apidirectoriotelefonico.vercel.app/api/contactos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include', // si usas cookies de sesión
         body: JSON.stringify(form),
       });
 
