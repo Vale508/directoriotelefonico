@@ -9,7 +9,7 @@ function ContenedorNuevo() {
     Telefono: '',
     Ciudad: '',
     Imagen: '',
-    usuario_id: localStorage.getItem('usuario_id') || ''  // 🔑 aquí
+    usuario_id: localStorage.getItem('Id_Usuario') || ''  // 🔑 aquí
   });
 
   const [loading, setLoading] = useState(false);
